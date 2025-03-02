@@ -11,7 +11,7 @@ const scrapers = [
 ];
 
 export const startScheduler = async () => {
-    new CronJob('* * * * *', async () => { // Runs every hour
+    new CronJob('0 * * * *', async () => { // Runs every hour
         logger.info('Starting job scraping...');
         await Promise.all(scrapers.map(async (scraper) => {
             await scraper.scrape();
